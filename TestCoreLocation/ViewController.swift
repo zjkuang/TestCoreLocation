@@ -11,7 +11,7 @@ import CoreLocation
 class ViewController: UIViewController {
     
     @IBOutlet weak var trackingSwitch: UISwitch!
-    @IBOutlet weak var restartButton: UIButton!
+    @IBOutlet weak var requestLocationButton: UIButton!
     @IBOutlet weak var latitudeValueLabel: UILabel!
     @IBOutlet weak var longitudeValueLabel: UILabel!
     @IBOutlet weak var logTextView: UITextView!
@@ -22,18 +22,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // Uncomment this to start the app without tracking
-        // trackingSwitch.setOn(false, animated: false)
+        trackingSwitch.setOn(false, animated: false)
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
     }
     
-    @IBAction func onClickRestartButton(_ sender: Any) {
+    @IBAction func onClickRequestLocationButton(_ sender: Any) {
         clear()
-        start()
-        restartButton.setTitle("Restart", for: .normal)
+        requestLocation()
     }
     
     @IBAction func onTrackingSwitchValueChange(_ sender: Any) {
@@ -45,7 +43,6 @@ class ViewController: UIViewController {
         } else {
             stopTracking()
         }
-        restartButton.setTitle("Restart", for: .normal)
     }
 
 }
@@ -65,19 +62,12 @@ extension ViewController {
         locationManager.requestLocation()
         log("Location request sent.")
     }
-    
-    func start() {
-        if trackingSwitch.isOn {
-            startTracking()
-        }
-        requestLocation()
-    }
 }
 
 extension ViewController: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         if (locationManager.authorizationStatus == .authorizedWhenInUse) || (locationManager.authorizationStatus == .authorizedAlways) {
-             start()
+            //
         } else {
             stopTracking()
         }

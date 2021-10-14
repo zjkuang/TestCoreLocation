@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOx-Bk-fzc" userLabel="panelView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOx-Bk-fzc" userLabel="panel">
                                 <rect key="frame" x="20" y="44" width="374" height="60"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6II-40-lks" userLabel="trackingSwitchView">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="60"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6II-40-lks" userLabel="trackingSwitchContainer">
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="60"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-hk-SGo" userLabel="titleLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tracking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-hk-SGo" userLabel="title">
                                                 <rect key="frame" x="0.0" y="19.5" width="66" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" systemColor="systemGrayColor"/>
@@ -45,12 +45,12 @@
                                             <constraint firstItem="TPl-GT-otS" firstAttribute="centerY" secondItem="6II-40-lks" secondAttribute="centerY" id="zdh-dG-Lek"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxo-0c-XzV" userLabel="Restart">
-                                        <rect key="frame" x="318" y="14.5" width="56" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fxo-0c-XzV">
+                                        <rect key="frame" x="238" y="14.5" width="136" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Request Location"/>
                                         <connections>
-                                            <action selector="onClickRestartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nl0-nj-gj0"/>
+                                            <action selector="onClickRequestLocationButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Po-nL-MGA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,13 +65,13 @@
                                     <constraint firstItem="fxo-0c-XzV" firstAttribute="centerY" secondItem="cOx-Bk-fzc" secondAttribute="centerY" id="xJE-vE-Adm"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11w-9J-PXH" userLabel="infoView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11w-9J-PXH" userLabel="info">
                                 <rect key="frame" x="20" y="104" width="374" height="64"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83V-cT-HPg" userLabel="latitudeView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83V-cT-HPg" userLabel="latitude">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evq-rb-zoD" userLabel="titleLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evq-rb-zoD" userLabel="title">
                                                 <rect key="frame" x="8" y="5.5" width="80" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="XZC-mQ-ZOa"/>
@@ -80,7 +80,7 @@
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dc-lz-vuv" userLabel="valueLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dc-lz-vuv">
                                                 <rect key="frame" x="96" y="16" width="270" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -96,10 +96,10 @@
                                             <constraint firstItem="1Dc-lz-vuv" firstAttribute="leading" secondItem="Evq-rb-zoD" secondAttribute="trailing" constant="8" symbolic="YES" id="rBN-k4-m4X"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ff-KZ-nQ0" userLabel="longitudeView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ff-KZ-nQ0" userLabel="longitude">
                                         <rect key="frame" x="0.0" y="32" width="374" height="32"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC8-VT-D1B" userLabel="titleLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC8-VT-D1B" userLabel="title">
                                                 <rect key="frame" x="8" y="5.5" width="80" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="2fk-r9-b0L"/>
@@ -108,7 +108,7 @@
                                                 <color key="textColor" systemColor="systemGrayColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3d-dc-hRK" userLabel="valueLabel">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3d-dc-hRK">
                                                 <rect key="frame" x="96" y="16" width="270" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -138,7 +138,7 @@
                                     <constraint firstItem="83V-cT-HPg" firstAttribute="leading" secondItem="11w-9J-PXH" secondAttribute="leading" id="uKb-Uu-tkx"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6O-PF-dEk" userLabel="logView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6O-PF-dEk" userLabel="log">
                                 <rect key="frame" x="20" y="176" width="374" height="686"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nro-1K-gZJ">
@@ -172,7 +172,7 @@
                         <outlet property="latitudeValueLabel" destination="1Dc-lz-vuv" id="Z7b-TJ-hHE"/>
                         <outlet property="logTextView" destination="nro-1K-gZJ" id="wUI-Nl-BGH"/>
                         <outlet property="longitudeValueLabel" destination="B3d-dc-hRK" id="acp-VE-aYB"/>
-                        <outlet property="restartButton" destination="fxo-0c-XzV" id="PvN-7h-caM"/>
+                        <outlet property="requestLocationButton" destination="fxo-0c-XzV" id="nHq-OU-VRm"/>
                         <outlet property="trackingSwitch" destination="TPl-GT-otS" id="IfW-e8-lCC"/>
                     </connections>
                 </viewController>
